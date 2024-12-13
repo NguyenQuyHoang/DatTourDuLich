@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Header</title>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(242, 242, 242);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right,rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.1));
+            padding: 20px 40px;
+            color: white;
+            z-index: 1000;
+        }
+
+        .header .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00ff00; /* Màu xanh lá cây */
+        }
+        .header .space1 {
+            width: 100px;
+            height: 10px;
+        }
+        .header .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header .nav a {
+            display: block;
+            width: max-content;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            text-transform: capitalize;
+        }
+
+        .header .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .header .user-icon {
+            position: fixed;
+            top: 20;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .coverimage{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(to right,rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.1));
+        }
+        .image img {
+            width: 100%;
+            height: 600px;
+        }
+
+        .image {
+            background: linear-gradient(to right,rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.1));
+        }
+
+        .tour-button {
+            position: absolute;
+            top: 400px;
+            left: 300px;
+            font-size: 1.5rem; /* Tăng kích thước font */
+            padding: 1rem 2rem; /* Tăng kích thước button */
+        }
+
+        .textWelcom{
+            position: absolute;
+            top: 250px;
+            left: 300px;
+        }
+
+        .textWelcom p{
+            font-size: 3rem;
+            color: white;
+        }
+
+    .home_infomation {
+        margin-top: 50px;
+        padding: 2%;
+      display: flex;
+      justify-content: space-between;
+      width: 98%;
+      height: max-content; /* Chiều cao 100% của cửa sổ trình duyệt */
+      background-color: white;
+    }
+
+    /* Thẻ div con chiếm 50% chiều rộng */
+    .infor_home_right, .infor_home_left {
+      width: 48%;
+      height: 100%;
+    }
+
+    .infor_home_right{
+        padding: 0 20px;
+    }
+    .infor_home_right h3{
+        font-weight: bold;
+        font-size: 3rem;
+    }
+
+    .infor_home_right p{
+        margin-top: 20px;
+        color: grey;
+    }
+
+    /* Lưới trong div bên phải */
+    .infor_home_left {
+      display: grid;
+      grid-template-columns: 40% 60%; /* Chia cột với tỉ lệ 40% và 60% */
+      grid-template-rows: 60% 40%; /* Chia hàng với tỉ lệ 60% và 40% */
+      gap: 10px; /* Khoảng cách giữa các khung */
+      height: 100%;
+    }
+
+    /* Khung 1 (top-left) */
+    .infor_home_left .box1 {
+      background-color: lightblue;
+      grid-row: 1; /* Khung này nằm trên hàng 1 */
+      grid-column: 1; /* Khung này nằm trong cột 1 */
+    }
+
+    /* Khung 2 (top-right) */
+    .infor_home_left .box2 {
+      background-color: lightgreen;
+      grid-row: 1; /* Khung này nằm trên hàng 1 */
+      grid-column: 2; /* Khung này nằm trong cột 2 */
+    }
+
+    /* Khung 3 (bottom-left) */
+    .infor_home_left .box3 {
+      background-color: lightcoral;
+      grid-row: 2; /* Khung này nằm trên hàng 2 */
+      grid-column: 1; /* Khung này nằm trong cột 1 */
+    }
+
+    /* Khung 4 (bottom-right) */
+    .infor_home_left .box4 {
+      background-color: lightyellow;
+      grid-row: 2; /* Khung này nằm trên hàng 2 */
+      grid-column: 2; /* Khung này nằm trong cột 2 */
+    }
+
+    .stepbystep{
+        width: 100%;
+        height: max-content;
+        background-color: white;
+        margin-top: 50px;
+    }
+
+    .box_step{
+        margin-top: 50px;
+        width: 100%;
+        height: 220px;
+        display: flex;
+        justify-content: center;
+        padding: 0px 100px;
+    }
+
+   .book{
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: #FB4141;
+    }
+
+    .TextBook{
+        padding: 20px;
+         display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 600px;
+        height: 200px;
+         border-radius: 100px 15px 15px 100px;
+        background-color: #FB4141;
+    }
+
+    .tour{
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: rgb(34, 202, 70);
+    }
+
+    .Texttour{
+        padding: 20px;
+         display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 600px;
+        height: 200px;
+         border-radius: 100px 15px 15px 100px;
+        background-color:rgb(34, 202, 70);
+    }
+     .lichtrinh{
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: rgb(220, 205, 0);
+    }
+
+    .ndlichtrinh{
+        padding: 20px;
+         display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 600px;
+        height: 200px;
+         border-radius: 100px 15px 15px 100px;
+        background-color:rgb(220, 205, 0);
+    }
+     .hdv{
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: #383838;
+    }
+
+    .ndhdv{
+        padding: 20px;
+         display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 600px;
+        height: 200px;
+         border-radius: 100px 15px 15px 100px;
+        background-color:#383838;
+    }
+    .btn{
+    	transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    }
+    .btn:hover{
+    	transform: translateY(-6px);
+    	color: #FFFDD0;
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Dulich</div>
+        <div class="space1"></div>
+        <nav class="nav">
+            <a href="#">home</a>
+            <a href="#">tour packages</a>
+            <a href="#">Destinations</a>
+            <a href="#">About Us</a>
+            <a href="#">contacts Us</a>
+        </nav>
+        <div class="user-icon">user</div>
+    </div>
+    <div class="coverimage"></div>
+    <div class="image">
+        <img src="https://phunugioi.com/wp-content/uploads/2021/07/Canh-dep-thien-nhien-Viet-Nam-88.jpg" alt="Background image">
+    </div>
+    <button class="btn btn-success tour-button">BOOK A TOUR NOW</button>
+    <div class="textWelcom">
+        <p>Hãy tận hưởng những chuyến đi của bạn<br> đặt tour với chúng tôi</p>
+    </div>
+    <div class="home_infomation">
+        <div class="infor_home_left">
+            <div class="box1">
+                <img src="https://cdn.pixabay.com/photo/2021/10/11/18/58/lake-6701636_960_720.jpg" alt="Background image" style="width: 100%; height: 100%;">
+            </div>
+            <div class="box2">
+                <img src="https://cdn.pixabay.com/photo/2021/07/20/13/46/ducks-6480791_960_720.jpg" alt="Background image" style="width: 100%; height: 100%;">
+            </div>
+            <div class="box3">
+                <img src="https://cdn.pixabay.com/photo/2023/12/29/08/33/lake-8475769_1280.jpg" alt="Background image" style="width: 100%; height: 100%;">
+            </div>
+            <div class="box4">
+                <img src="https://2trip.vn/wp-content/uploads/2020/08/pho-co-hoi-an.jpg" alt="Background image" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+        <div class="infor_home_right">
+            <h3>Hãy để chúng tôi làm điểm khởi đầu cho hành trình khám phá thế giới của bạn</h3>
+            <p>Hành trình khám phá thế giới luôn bắt đầu từ những bước đi đầu tiên, và chúng tôi chính là người bạn đồng hành tin cậy trong mỗi chuyến đi của bạn. Với những tour du lịch đa dạng, phong phú, từ những thành phố sôi động đến những cảnh quan thiên nhiên hùng vĩ, chúng tôi mang đến cho bạn trải nghiệm đầy ấn tượng. Hãy để chúng tôi giúp bạn mở rộng tầm mắt, khám phá những nền văn hóa độc đáo và những điểm đến tuyệt vời. Cùng chúng tôi, hành trình của bạn sẽ trở nên đáng nhớ và trọn vẹn hơn bao giờ hết!</p>
+        </div>
+    </div>
+
+    <div class="stepbystep">
+        <div class="container" style="text-align: center;">
+            <div style="width: 90%; padding: 20px; margin-top: 50px;" class="bg-success text-white">
+            	<marquee behavior="scroll" direction="left" scrollamount="10">
+    				<h2 style="font-weight: bold;">Hướng dẫn đặt tour</h2>
+				</marquee>
+            </div>
+            <div class="box_step">
+                <div class="book">
+                    <p>Book tour now</p>
+                </div>
+                <div class="TextBook">
+                    <p>Click vào book a tour now để bắt đầu đặt tour với chúng tôi</p>
+                </div>
+            </div>
+
+            <div class="box_step">
+                <div class="tour">
+                    <p>Chọn tour</p>
+                </div>
+                <div class="Texttour">
+                    <p>Hãy cho chúng tôi biết bạn muốn đi tour nào (trong ngày, 2 ngày 1 đêm ?)</p>
+                </div>
+            </div>
+
+            <div class="box_step">
+                <div class="lichtrinh">
+                    <p>Chọn lịch trình</p>
+                </div>
+                <div class="ndlichtrinh">
+                    <p>Chúng tôi cung cấp vô số lịch trình cho một tour du lịch</p>
+                </div>
+            </div>
+
+            <div class="box_step">
+                <div class="hdv">
+                    <p>Chọn hướng dẫn viên</p>
+                </div>
+                <div class="ndhdv">
+                    <p>Hãy chọn người đồng hành mà bạn tin tưởng nhất</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer text-white"style="width: 100%; height: 300px; background-color: #383838; margin-top: 80px; display: flex; align-items: center; justify-content: center;">
+        <div class="btn btn-success" style="margin-right: 100px; padding: 10px; font-size: 1.5rem;">BOOK A TOUR NOW</div>
+        <p>Nguyễn Quý Hoàng<br>
+        Mai Văn Anh Vủ<br>
+        Phạm Văn Tiền<br>
+        Trần Nguyễn Quốc Sang<br>
+        Nguyễn Đức Lương</p>
+    </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</body>
+</html>
