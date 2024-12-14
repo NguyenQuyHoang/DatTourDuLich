@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+	<link rel="icon" href="https://cdn-icons-png.flaticon.com/128/826/826070.png" type="image/x-icon">
+    <title>Header</title>
+    
+</head>
+<body>
+<div th:fragment="nav" >
+	<style>
+        body {
+            position: relative;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(242, 242, 242);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right,rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.1));
+            padding: 20px 40px;
+            color: white;
+            z-index: 1000;
+        }
+
+        .header .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00ff00; /* Màu xanh lá cây */
+        }
+        .header .space1 {
+            width: 100px;
+            height: 10px;
+        }
+        .header .nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header .nav a {
+            display: block;
+            width: max-content;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            text-transform: capitalize;
+        }
+        
+         .header .nav .home{
+         	display: block;
+            width: max-content;
+            padding: 10px;
+            color: black;
+            border-radius: 5px;
+            background-color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            text-transform: capitalize;
+         }
+
+        .header .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .header .user-icon {
+            position: fixed;
+            top: 20;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .coverimage{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(to right,rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.1));
+        }
+        .image img {
+            width: 100%;
+            height: 600px;
+        }
+
+        .image {
+            background: linear-gradient(to right,rgba(0, 0, 0, 0.76),rgba(0, 0, 0, 0.1));
+        }
+
+        .tour-button {
+            position: absolute;
+            top: 400px;
+            left: 300px;
+            font-size: 1.5rem; /* Tăng kích thước font */
+            padding: 1rem 2rem; /* Tăng kích thước button */
+        }
+
+        .textWelcom{
+            position: absolute;
+            top: 250px;
+            left: 300px;
+        }
+
+        .textWelcom p{
+            font-size: 3rem;
+            color: white;
+        }
+
+    .home_infomation {
+        margin-top: 50px;
+        padding: 2%;
+      display: flex;
+      justify-content: space-between;
+      width: 98%;
+      height: max-content; /* Chiều cao 100% của cửa sổ trình duyệt */
+      background-color: white;
+    }
+
+    /* Thẻ div con chiếm 50% chiều rộng */
+    .infor_home_right, .infor_home_left {
+      width: 48%;
+      height: 100%;
+    }
+
+    .infor_home_right{
+        padding: 0 20px;
+    }
+    .infor_home_right h3{
+        font-weight: bold;
+        font-size: 3rem;
+    }
+
+    .infor_home_right p{
+        margin-top: 20px;
+        color: grey;
+    }
+
+    /* Lưới trong div bên phải */
+    .infor_home_left {
+      display: grid;
+      grid-template-columns: 40% 60%; /* Chia cột với tỉ lệ 40% và 60% */
+      grid-template-rows: 60% 40%; /* Chia hàng với tỉ lệ 60% và 40% */
+      gap: 10px; /* Khoảng cách giữa các khung */
+      height: 100%;
+    }
+
+    /* Khung 1 (top-left) */
+    .infor_home_left .box1 {
+      background-color: lightblue;
+      grid-row: 1; /* Khung này nằm trên hàng 1 */
+      grid-column: 1; /* Khung này nằm trong cột 1 */
+    }
+
+    /* Khung 2 (top-right) */
+    .infor_home_left .box2 {
+      background-color: lightgreen;
+      grid-row: 1; /* Khung này nằm trên hàng 1 */
+      grid-column: 2; /* Khung này nằm trong cột 2 */
+    }
+
+    /* Khung 3 (bottom-left) */
+    .infor_home_left .box3 {
+      background-color: lightcoral;
+      grid-row: 2; /* Khung này nằm trên hàng 2 */
+      grid-column: 1; /* Khung này nằm trong cột 1 */
+    }
+
+    /* Khung 4 (bottom-right) */
+    .infor_home_left .box4 {
+      background-color: lightyellow;
+      grid-row: 2; /* Khung này nằm trên hàng 2 */
+      grid-column: 2; /* Khung này nằm trong cột 2 */
+    }
+
+    .stepbystep{
+        width: 100%;
+        height: max-content;
+        background-color: white;
+        margin-top: 50px;
+    }
+
+    .box_step{
+        margin-top: 50px;
+        width: 100%;
+        height: 220px;
+        display: flex;
+        justify-content: center;
+        padding: 0px 100px;
+    }
+
+   .book{
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: #FB4141;
+    }
+
+    .TextBook{
+        padding: 20px;
+         display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 600px;
+        height: 200px;
+         border-radius: 100px 15px 15px 100px;
+        background-color: #FB4141;
+    }
+
+    .tour{
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: rgb(34, 202, 70);
+    }
+
+    .Texttour{
+        padding: 20px;
+         display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 600px;
+        height: 200px;
+         border-radius: 100px 15px 15px 100px;
+        background-color:rgb(34, 202, 70);
+    }
+     .lichtrinh{
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: rgb(220, 205, 0);
+    }
+
+    .ndlichtrinh{
+        padding: 20px;
+         display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 600px;
+        height: 200px;
+         border-radius: 100px 15px 15px 100px;
+        background-color:rgb(220, 205, 0);
+    }
+     .hdv{
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: #383838;
+    }
+
+    .ndhdv{
+        padding: 20px;
+         display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        align-items: center;
+        width: 600px;
+        height: 200px;
+         border-radius: 100px 15px 15px 100px;
+        background-color:#383838;
+    }
+    .btn{
+    	transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    }
+    .btn:hover{
+    	transform: translateY(-6px);
+    	color: #FFFDD0;
+    }
+    </style>
+    <div class="header">
+        <div class="logo">Dulich</div>
+        <div class="space1"></div>
+        <nav class="nav">
+            <a href="/home" class="home">home</a>
+            <a href="#">Book tour</a>
+            <a href="#">My tour</a>
+            <a href="#">About Us</a>
+            <a href="#">contacts Us</a>
+        </nav>
+        <div class="user-icon">
+        	<span class="material-symbols-outlined" style="font-size: 2.5rem;" id="dropdownMenuButton1"data-bs-toggle="dropdown">
+				account_circle
+			</span>
+			 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#"><span th:text="${userinfo.getUsername()}"></span></a></li>
+                <li><a class="dropdown-item" href="#"><span th:text="${userinfo.getEmail()}"></span></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</body>
+</html>

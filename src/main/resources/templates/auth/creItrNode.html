@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create and Manage Tour</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Tạo Tour -->
+        <h2>Create a Inerary Detail</h2>
+        <form th:action="@{/admin/ProCreItrNode}" th:object="${itinode}" method="post">
+            <div class="mb-3">
+                <label for="location" class="form-label">location</label>
+                <input type="text" class="form-control" id="location" th:field="*{location}" placeholder="Enter location" required></input>
+            </div>
+            <div class="mb-3">
+                <label for="time_node" class="form-label">time_node</label>
+                <input type="text" class="form-control" id="time_node" th:field="*{time_node}" placeholder="Enter time_node" required>
+            </div>
+			<div class="mb-3">
+                <label for="day_of_tour" class="form-label">day_of_tour</label>
+                <input type="number" class="form-control" id="day_of_tour" th:field="*{day_of_tour}" placeholder="Enter day_of_tour" required>
+            </div>
+			<div class="mb-3">
+                <label for="itinerary" class="form-label">itinerary</label>
+                <input type="text" class="form-control" id="itinerary" th:field="*{itinerary}"  readonly>
+            </div>
+			 <button type="submit" class="btn btn-primary">Create itinerary first node</button>
+        </form>
+		<a th:href="@{/admin/showitInerary}" class="btn btn-primary mt-4">Back to admin home</a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

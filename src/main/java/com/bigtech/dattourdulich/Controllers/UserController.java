@@ -50,5 +50,17 @@ public class UserController {
 		model.addAttribute("userinfo", userinfo);
 		return "/auth/home";
 	}
+	@RequestMapping("/user/footer")
+	public String getFooter() {
+		return "auth/footer";
+	}
+	@RequestMapping("/user/nav")
+	public String getNav() {
+		return "auth/nav";
+	}
+	@RequestMapping("/user/info")
+	public String getInfo() {
+		return "auth/info";
+	}
 	
 }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thymeleaf Layout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .navbar-custom { background-color: #1e88e5; color: white; }
+        .sidebar { background-color: #4caf50; min-height: 100vh; }
+        .sidebar .btn { width: 100%; margin-bottom: 10px; background-color: #1e88e5; color: white; }
+        .content { background-color: #e3f2fd; min-height: calc(100vh - 150px); padding: 20px; }
+        .footer { background-color: #1e88e5; color: white; text-align: center; padding: 10px 0; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-custom d-flex justify-content-between align-items-center p-3">
+        <div class="d-flex align-items-center">
+            <h1 class="navbar-brand text-white m-0">LOGO</h1>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+			<div class="col-2 sidebar p-2">
+              <div style="margin: 30px 0;"><a href="/admin/showGuides" class="bg-success text-white " style="padding: 10px 0;display: block;text-align: center; width:230px; border-radius: 5px; text-decoration: none;">Guides</a></div>
+               <div style="margin: 30px 0;"><a href="/admin/showTours" class="bg-success text-white " style="padding: 10px 0;display: block;text-align: center; width:230px; border-radius: 5px; text-decoration: none;">Tours</a></div>
+               <div style="margin: 30px 0;"><a href="/admin/showitInerary" class="bg-success text-white" style="padding: 10px 0;display: block;text-align: center; width:230px; border-radius: 5px; text-decoration: none;">Itineraries</a></div>
+           </div>
+
+            <!-- Content -->
+            <div class="col-md-10 content">
+                <!-- Nội dung sẽ được thay thế bởi AJAX -->
+                <!-- <div id="content" th:fragment="content">Content loading...</div> -->
+                <div class="container mt-5">
+				    <h2 class="text-center mb-4">Quản lý Hướng Dẫn Viên</h2>
+				
+				    <!-- Thêm Hướng Dẫn Viên -->
+				    <a href="/admin/createGuides" class="bg-primary text-white m-3" style="padding: 10px; border-radius: 5px; text-decoration: none;">Thêm Hướng Dẫn Viên</a>
+				    <!-- Bảng Hiển Thị Danh Sách -->
+				    <table class="table table-bordered mt-3">
+				        <thead class="table-dark">
+					        <tr>
+					            <th>id</th>
+					            <th>Guide Name</th>
+					            <th>Contact Infomation</th>
+					            <th>Experience_years</th>
+					            <th>Status Active</th>
+					        </tr>
+				        </thead>
+				        <tbody>
+				        <!-- Loop dữ liệu hướng dẫn viên từ backend -->
+				        <tr th:each="guide : ${guidess}">
+				            <td th:text="${guide.id}"></td>
+				            <td th:text="${guide.guideName}"></td>
+				            <td th:text="${guide.contactInfo}"></td>
+				            <td th:text="${guide.experienceYears}"></td>
+				            <td>
+				                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" 
+				                        th:attr="data-bs-target='#editGuideModal-${guide.id}'">
+				                    Sửa
+				                </button>
+				                <button class="btn btn-danger btn-sm" th:attr="onclick='deleteGuide(${guide.id})'">Xóa</button>
+				            </td>
+				        </tr>
+				        </tbody>
+			    </table>
+				</div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Footer Content © 2024</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
