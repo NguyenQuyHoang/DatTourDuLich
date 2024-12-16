@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
-
-
 	<link rel="icon" href="https://cdn-icons-png.flaticon.com/128/826/826070.png" type="image/x-icon">
-
-    <title>Header</title>
+    <title>Confirm Details</title>
     <style>
-        body {
+    	body {
             position: relative;
             margin: 0;
             font-family: Arial, sans-serif;
@@ -110,10 +106,8 @@
             position: absolute;
             top: 400px;
             left: 300px;
-            font-size: 1.1rem; /* Tăng kích thước font */
-            padding: 1rem 1rem; /* Tăng kích thước button */
-            width: 20%;
-            height: 60px;
+            font-size: 1.5rem; /* Tăng kích thước font */
+            padding: 1rem 2rem; /* Tăng kích thước button */
         }
 
         .textWelcom{
@@ -313,18 +307,84 @@
     	transform: translateY(-6px);
     	color: #FFFDD0;
     }
+        .btn-home {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-logout {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .checkbox-container {
+            margin-top: 20px;
+        }
+
+        .button-group {
+            margin-top: 20px;
+        }
+        .contact-info {
+            background-color: #fff;
+            padding: 20px;
+            margin: 90px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info h3 {
+            font-size: 24px;
+            color: #333;
+        }
+        .contact-info p {
+            font-size: 18px;
+            color: #666;
+        }
+        .btn-contact {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-contact:hover {
+            background-color: #4cae4c;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
+    <!-- Contact Section -->
+        <div class="contact-info">
+            <h3>Hãy bắt đầu hành trình của bạn!</h3>
+            <p>Chúng tôi rất hân hạnh được là người bạn đồng hành trong mỗi chuyến đi của bạn. Hãy để chúng tôi giúp bạn biến ước mơ khám phá thế giới thành hiện thực.</p>
+            <p>Liên hệ với chúng tôi ngay hôm nay để nhận những ưu đãi đặc biệt và bắt đầu hành trình của bạn!</p>
+
+            <button class="btn-contact">Liên hệ với chúng tôi</button>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h3>Thông tin liên hệ</h3>
+            <p>Website: Travel.com</p>
+            <p>Hotline: +84-123-456-789</p>
+            <p>Email: travel@ods.vn.</p>
+            <p>Địa chỉ: 38 Xô Viết Nghệ Tĩnh,Đông Á University</p>
+        </div>
+        <div class="header">
         <div class="logo">Dulich</div>
         <div class="space1"></div>
         <nav class="nav">
-            <a href="/home" class="home">home</a>
-            <a href="/user/order">Book tour</a>
+            <a href="/home">home</a>
+            <a href="/order">Book tour</a>
             <a href="/mytour">My tour</a>
             <a href="/about">About Us</a>
-            <a href="#">contacts Us</a>
+            <a href="/contacts" class="home">contacts Us</a>
         </nav>
         <div class="user-icon">
         	<span class="material-symbols-outlined" style="font-size: 2.5rem;" id="dropdownMenuButton1"data-bs-toggle="dropdown">
@@ -338,95 +398,7 @@
             </ul>
         </div>
     </div>
-    <div class="coverimage"></div>
-    <div class="image">
-        <img src="https://phunugioi.com/wp-content/uploads/2021/07/Canh-dep-thien-nhien-Viet-Nam-88.jpg" alt="Background image">
-    </div>
-    <button class="btn btn-success tour-button" >
-    <a th:href="@{/order}" style="text-decoration: none; color: inherit;">
-        <p>BOOK A TOUR NOW<p>
-    </a>
-    </button>
-    <div class="textWelcom">
-        <p>Hãy tận hưởng những chuyến đi của bạn<br> đặt tour với chúng tôi</p>
-    </div>
-    <div class="home_infomation">
-        <div class="infor_home_left">
-            <div class="box1">
-                <img src="https://cdn.pixabay.com/photo/2021/10/11/18/58/lake-6701636_960_720.jpg" alt="Background image" style="width: 100%; height: 100%;">
-            </div>
-            <div class="box2">
-                <img src="https://cdn.pixabay.com/photo/2021/07/20/13/46/ducks-6480791_960_720.jpg" alt="Background image" style="width: 100%; height: 100%;">
-            </div>
-            <div class="box3">
-                <img src="https://cdn.pixabay.com/photo/2023/12/29/08/33/lake-8475769_1280.jpg" alt="Background image" style="width: 100%; height: 100%;">
-            </div>
-            <div class="box4">
-                <img src="https://2trip.vn/wp-content/uploads/2020/08/pho-co-hoi-an.jpg" alt="Background image" style="width: 100%; height: 100%;">
-            </div>
-        </div>
-        <div class="infor_home_right">
-            <h3>Hãy để chúng tôi làm điểm khởi đầu cho hành trình khám phá thế giới của bạn</h3>
-            <p>Hành trình khám phá thế giới luôn bắt đầu từ những bước đi đầu tiên, và chúng tôi chính là người bạn đồng hành tin cậy trong mỗi chuyến đi của bạn. Với những tour du lịch đa dạng, phong phú, từ những thành phố sôi động đến những cảnh quan thiên nhiên hùng vĩ, chúng tôi mang đến cho bạn trải nghiệm đầy ấn tượng. Hãy để chúng tôi giúp bạn mở rộng tầm mắt, khám phá những nền văn hóa độc đáo và những điểm đến tuyệt vời. Cùng chúng tôi, hành trình của bạn sẽ trở nên đáng nhớ và trọn vẹn hơn bao giờ hết!</p>
-        </div>
-    </div>
 
-    <div class="stepbystep">
-        <div class="container" style="text-align: center;">
-            <div style="width: 90%; padding: 20px; margin-top: 50px;" class="bg-success text-white">
-            	<marquee behavior="scroll" direction="left" scrollamount="10">
-    				<h2 style="font-weight: bold;">Hướng dẫn đặt tour</h2>
-				</marquee>
-            </div>
-            <div class="box_step">
-                <div class="book">
-                    <p>Book tour now</p>
-                </div>
-                <div class="TextBook">
-                    <p>Click vào book a tour now để bắt đầu đặt tour với chúng tôi</p>
-                </div>
-            </div>
-
-            <div class="box_step">
-                <div class="tour">
-                    <p>Chọn tour</p>
-                </div>
-                <div class="Texttour">
-                    <p>Hãy cho chúng tôi biết bạn muốn đi tour nào (trong ngày, 2 ngày 1 đêm ?)</p>
-                </div>
-            </div>
-
-            <div class="box_step">
-                <div class="lichtrinh">
-                    <p>Chọn lịch trình</p>
-                </div>
-                <div class="ndlichtrinh">
-                    <p>Chúng tôi cung cấp vô số lịch trình cho một tour du lịch</p>
-                </div>
-            </div>
-
-            <div class="box_step">
-                <div class="hdv">
-                    <p>Chọn hướng dẫn viên</p>
-                </div>
-                <div class="ndhdv">
-                    <p>Hãy chọn người đồng hành mà bạn tin tưởng nhất</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer text-white"style="width: 100%; height: 300px; background-color: #383838; margin-top: 80px; display: flex; align-items: center; justify-content: center;">
-   
-        <div class="btn btn-success" style="margin-right: 100px; padding: 10px; font-size: 1.5rem;">BOOK A TOUR NOW</div>
-        <p>Nguyễn Quý Hoàng<br>
-        Mai Văn Anh Vủ<br>
-        Phạm Văn Tiền<br>
-        Trần Nguyễn Quốc Sang<br>
-        Nguyễn Đức Lương</p>
-    </div>
-
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    
 </body>
 </html>

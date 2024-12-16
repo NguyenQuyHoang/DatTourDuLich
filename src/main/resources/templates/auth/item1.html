@@ -58,11 +58,8 @@
 				            <td th:text="${guide.contactInfo}"></td>
 				            <td th:text="${guide.experienceYears}"></td>
 				            <td>
-				                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" 
-				                        th:attr="data-bs-target='#editGuideModal-${guide.id}'">
-				                    Sửa
-				                </button>
-				                <button class="btn btn-danger btn-sm" th:attr="onclick='deleteGuide(${guide.id})'">Xóa</button>
+				                <a th:href="@{/admin/updateGuides(id=${guide.id})}" class="btn btn-success">sửa</a>
+				                <a th:href="@{/admin/deleteGuides(id=${guide.id})}" class="btn btn-primary">Xoá</a>
 				            </td>
 				        </tr>
 				        </tbody>

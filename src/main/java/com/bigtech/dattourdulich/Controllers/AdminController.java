@@ -64,13 +64,29 @@ import com.bigtech.dattourdulich.repository.ItineraryRepository;
 		
 		@RequestMapping("/admin/ProCreGuides")
 		String processAddGuides(@Valid @ModelAttribute("guides") tour_guides guide, BindingResult bindingResult, Model model) {
-			String name = guide.getGuideName();
-			String contact = guide.getContactInfo();
-			int exp = guide.getExperienceYears();
-			tour_guides guide1 = new tour_guides(name, contact, exp);
-			GuideRepository.save(guide1);
+//			String name = guide.getGuideName();
+//			String contact = guide.getContactInfo();
+//			int exp = guide.getExperienceYears();
+//			tour_guides guide1 = new tour_guides(name, contact, exp);
+			
+			GuideRepository.save(guide);
 			return "redirect:/admin/showGuides";
 		}
+		
+		@RequestMapping("/admin/deleteGuides")
+		String deleteGuides(@RequestParam("id") int id) {
+			tour_guides guide = GuideRepository.findById(id).get();
+			GuideRepository.delete(guide);
+			return "redirect:/admin/showGuides";
+		}
+		
+		@RequestMapping("/admin/updateGuides")
+		String updateguides(@RequestParam("id") int id, Model model) {
+			tour_guides guide = GuideRepository.findById(id).get();
+			model.addAttribute("guides", guide);
+			return "auth/createGuide";
+		}
+		
 		 
 		 
 	    @GetMapping("/admin/showTours")
